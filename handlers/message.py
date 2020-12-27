@@ -50,7 +50,7 @@ async def message(client, message):
                         LOG_GROUP,
                         "<b>עכשיו מנגן</b>\n"
                         "כותרת השיר: <a href=\"{}\">{}</a>\n"
-                        "ע"י: <a href=\"tg://user?id={}\">{}</a>"
+                        """ע"י: <a href=\"tg://user?id={}\">{}</a>"""
                     ]
                 ] if LOG_GROUP else None
             ]
