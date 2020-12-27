@@ -8,19 +8,19 @@ from pyrogram.handlers import MessageHandler
 
 async def tts(client, message):
     if message.text.replace("/tts", "") == "":
-        await message.reply_text("Give me some text to speak.")
+        await message.reply_text("תן לי קצת טקסט להשמיע.")
     else:
         try:
             gTTS(message.text.replace("/tts ", ""),
                  lang="en-US").save("downloads/tts.mp3")
-            m = await message.reply_text("Speaking...")
+            m = await message.reply_text("משמיע את הטקסט...")
             _thread.start_new_thread(
                 subprocess.Popen(["mplayer", "downloads/tts.mp3"]).wait,
                 ()
             )
-            await m.edit("Spoke.")
+            await m.edit("סיימתי להשמיע.")
         except:
-            await message.reply_text("An eror occured.")
+            await message.reply_text("אירעה שגיאה.")
 
             
 async def x(client, message):
