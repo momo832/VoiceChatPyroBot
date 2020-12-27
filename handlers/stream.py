@@ -7,18 +7,18 @@ from config import SUDO_FILTER, LOG_GROUP
 async def stream(client, message):
     if player.current:
         await message.reply_text(
-            "Can't stream while music is playing."
+            "לא יכול להזרים בזמן השמעת מוזיקה."
         )
     else:
         args = message.text.split()
 
         if len(args) == 1:
             await message.reply_text(
-                "Give me a stream URL as an arg."
+                "שלח לי קישור ישיר להזרמה."
             )
         elif len(args) != 2:
             await message.reply_text(
-                "You provided more than an arg."
+                "נתת יותר מקישור אחד."
             )
         else:
             stream = player.stream(
@@ -27,7 +27,7 @@ async def stream(client, message):
                     client.send_message,
                     [
                         LOG_GROUP,
-                        "<b>NOW STREAMING</b>\n"
+                        "<b>עכשיו מזרים</b>\n"
                         "<pre>{}</pre>".format(
                             args[1]
                         )
@@ -36,7 +36,7 @@ async def stream(client, message):
             )
 
             await message.reply_text(
-                "Streaming..."
+                "מזרים..."
             )
 
 __handlers__ = [
