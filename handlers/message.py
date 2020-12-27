@@ -11,22 +11,22 @@ async def message(client, message):
         return
 
     if not is_youtube(message.text):
-        await message.reply_text("This (link) is not valid.")
+        await message.reply_text("קישור זה (link) לא תקין.")
         return
 
     if "list=" in message.text:
-        await message.reply_text("Send me a video link, not a playlist link.")
+        await message.reply_text("שלח לי קישור לסרטון, לא קישור לפלייליסט.")
         return
 
-    await message.reply_text("Download scheduled.", quote=True)
+    await message.reply_text("ההורדה תוזמנה", quote=True)
     download(
         (
             message.reply_text,
-            ("Downloading...",)
+            ("מוריד...",)
         ),
         (
             message.reply_text,
-            (f"Downloaded and scheduled to play at position {player.q.qsize() + 1}.",)
+            (f"השיר הורד ותוזמן להשמיע בתור מספר {player.q.qsize() + 1}.",)
         ),
         [
             player.play,
@@ -34,11 +34,11 @@ async def message(client, message):
                 None,
                 (
                     message.reply_text,
-                    ("Playing...",)
+                    ("מנגן...",)
                 ),
                 (
                     message.reply_text,
-                    ("Finished playing...",)
+                    ("סיימתי לנגן את השיר שלך, תודה 🎶",)
                 ),
                 None,
                 None,
@@ -48,16 +48,16 @@ async def message(client, message):
                     client.send_message,
                     [
                         LOG_GROUP,
-                        "<b>NOW PLAYING</b>\n"
-                        "Title: <a href=\"{}\">{}</a>\n"
-                        "Requested By: <a href=\"tg://user?id={}\">{}</a>"
+                        "<b>עכשיו מנגן</b>\n"
+                        "כותרת השיר: <a href=\"{}\">{}</a>\n"
+                        "ע"י: <a href=\"tg://user?id={}\">{}</a>"
                     ]
                 ] if LOG_GROUP else None
             ]
         ],
         (
             message.reply_text,
-            "You can't download live videos."
+            "אי אפשר להוריד שידורים חיים."
         ),
         message.text,
     )
