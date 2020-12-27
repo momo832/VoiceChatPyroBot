@@ -3,7 +3,7 @@ from pyrogram.handlers import MessageHandler
 
 
 async def mistake(client, message):
-    await message.reply_text("I assume that that was a mistake.")
+    await message.reply_text("נראה שזה טעות...")
 
 
 __handlers__ = [
