@@ -22,7 +22,7 @@ async def volume(client, message):
                     ]
                 ).wait()
                 await message.reply_text(
-                    f"Volume set to {volume}"
+                    f"עוצמת השמע הוא {volume}"
                 )
                 return
         except:
@@ -52,7 +52,7 @@ async def volume(client, message):
         )
     else:
         await message.reply_text(
-            f"Current volume is {current_volume}",
+            f"עוצמת השמע הוא {current_volume}",
         )
 
 __handlers__ = [
