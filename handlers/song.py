@@ -8,8 +8,8 @@ async def song(client, message):
     if get:
         await message.reply_text(
             """
-TITLE: <a href="{}">{}</a>
-REQUESTED BY: <a href="tg://user?id={}">{}</a>
+כותרת השיר: <a href="{}">{}</a>
+ע"י: <a href="tg://user?id={}">{}</a>
             """.format(
                 get["url"],
                 get["title"],
@@ -20,7 +20,7 @@ REQUESTED BY: <a href="tg://user?id={}">{}</a>
         )
     else:
         await message.reply_text(
-            "No song is currently playing."
+            "אין שיר מושמע כרגע."
         )
 
 __handlers__ = [
