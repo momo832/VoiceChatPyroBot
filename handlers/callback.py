@@ -26,7 +26,7 @@ async def callback(client, query):
         ).wait()
 
         await query.message.reply_text(
-            f"הווליום כרגע הוא {volume}",
+            f"עוצמת השמע הוא {volume}",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -63,7 +63,7 @@ async def callback(client, query):
         ).wait()
 
         await query.message.reply_text(
-            f"הווליום כרגע הוא {volume}",
+            f"עוצמת השמע הוא {volume}",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
