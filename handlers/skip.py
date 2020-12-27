@@ -6,9 +6,9 @@ from config import SUDO_FILTER
 
 async def skip(client, message):
     if player.abort():
-        await message.reply_text("Skipped.")
+        await message.reply_text("מדלג לשיר הבא...")
     else:
-        await message.reply_text("There's no song playing to be skipped.")
+        await message.reply_text("אין שיר מושמע כדי לדלג.")
 
 __handlers__ = [
     [
